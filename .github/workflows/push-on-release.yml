@@ -12,7 +12,7 @@ jobs:
       - name: Creates output folder and remove markdown
         run:  |
               mkdir output
-              touch output/${{ github.ref_name }}
+              touch output/schema
       - name: Pushes to schema store repository
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@main
@@ -25,3 +25,4 @@ jobs:
           user-email: hello@matteocollina.com
           commit-message: pushed from ${{ github.ref_name }}
           target-branch: main
+          target-directory: ${{ github.ref_name }}
